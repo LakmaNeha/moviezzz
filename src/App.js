@@ -92,10 +92,10 @@ function App() {
       <div className="App" >
         <header>
 
-        <div style={{display: "flex" , flexDirection: "row" , alignItems: "center",justifyContent: "space-between"}} >
+        <div className="headerItems" >
         <a href= "/" style={{textDecoration: "none"}}><h1>MOVIEZZZ</h1></a>
-        <a href= "/" style={{textDecoration: "none"}}><h4 style={{marginLeft:"3rem",color:"white"}}>Home</h4></a>
-        <h4 style={{marginLeft:"3rem",color:"white",cursor:"pointer"  }} onClick={showList} >Watchlist</h4>
+        <a href= "/" style={{textDecoration: "none"}}><h4 >Home</h4></a>
+        <h4  onClick={showList} >Watchlist</h4>
         </div>  
 
       <form onSubmit={searchResult}>
