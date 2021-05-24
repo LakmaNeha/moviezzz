@@ -1,354 +1,318 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-.App{
-    background-color: #121212 ;
-    margin: 0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+.App {
+  background-color: #121212;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h4 {
+  margin-left: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+header h1 {
+  color: white;
+  padding-left: 1rem;
+}
+.showInput {
+  margin-right: 2rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 3px solid #121212;
+  outline: none;
+  width: 450px;
+}
+.hide {
+  display: none;
+}
+.searchIcon {
+  margin-right: 2rem;
+  color: white;
+  cursor: pointer;
+}
+.movie {
+  width: 250px;
+  margin: 1rem;
+  background-color: #333;
+  box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding-bottom: 0rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+}
+.movie img {
+  max-width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.movie-info h4 {
+  margin: 0;
+  color: white;
+}
+.movie-overview {
+  padding: 1rem;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 1.6;
+  transform: translateY(102%);
+  transition: transform 0.3s ease-in-out;
+  overflow: auto;
+  max-height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.movie:hover .movie-overview {
+  transform: translateY(0%);
+}
+.green {
+  color: rgb(24, 224, 24);
+  background-color: #121212;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.orange {
+  color: orange;
+  background-color: #121212;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.red {
+  color: rgb(218, 12, 12);
+  background-color: #121212;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal {
+  display: block;
+  max-width: 60%;
+  height: 80vh;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+  background-color: #333;
+  position: relative;
+  font-family: "Cinzel", serif;
+}
+.cancelBtn {
+  color: red;
+  font-size: xx-large;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.trailerBtn {
+  background-color: rgb(10, 75, 173);
+  color: white;
+  padding: 1rem;
+}
+.modal img {
+  max-width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin: 2rem;
+  margin-top: 6rem;
+}
+
+.modal h2 {
+  color: white;
+  margin: 2rem;
+  position: absolute;
+}
+
+.imgWithDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.details p {
+  display: inline;
+  font-size: 1rem;
+  color: white;
+  max-width: 450vh;
+  margin-right: 2rem;
+}
+
+.inList {
+  margin-right: 2rem;
+  color: rgb(255, 217, 0);
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.notInList {
+  margin-right: 2rem;
+  color: rgb(255, 217, 0);
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.watchList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imgInWatchList {
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+.card {
+  margin: 1rem;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  width: 280px;
+  font-family: "Cinzel", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card h4 {
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.noItems {
+  text-align: center;
+  color: white;
+  font-family: "Cinzel", serif;
+}
+
+@media (max-width: 900px) {
+  .imgWithDetails {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-.movie-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-
-}
-header{
-    
-    
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    
+  }
 
-}
-.headerItems{
-
-    display: flex ;
-     flex-direction: row ;
-      align-items: center ;
-     justify-content: space-between
-}
-
-header h4{
-    margin-left: 3rem;
-    color: white ;
-    cursor:pointer
-}
-
-header h1{
+  .details p {
+    font-size: 0.8rem;
     color: white;
-   padding-left: 1rem;
+    max-width: 450vh;
+    margin: 0.5rem;
+  }
 
-}
-.showInput{
+  .modal img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 6rem;
+  }
+
+  .trailerBtn {
+    background-color: rgb(10, 75, 173);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    margin: auto;
+  }
+
+  .modal {
+    display: block;
+    max-width: 75%;
+    height: 80vh;
+    margin: 40px auto;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+    background-color: #333;
+    position: relative;
+    font-family: "Cinzel", serif;
+    overflow: auto;
+  }
+  .modal h2 {
+    color: white;
+    margin: 1.5rem;
+    position: absolute;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .showInput {
+    margin-left: 2rem;
     margin-right: 2rem;
     padding: 1rem;
     border-radius: 5px;
     border: 3px solid #121212;
     outline: none;
-    width: 450px;
-}
-.hide{
-    display: none;
-}
-.searchIcon{
-    margin-right: 2rem;
-    color: white;
-    cursor: pointer;
-}
-.movie{
     width: 250px;
-    margin: 1rem;
-    background-color: #333;
-    box-shadow: 0 -3px 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    padding-bottom: 0rem;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    font-family: 'Cinzel', serif;
-}
-.movie img{
-    max-width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-.movie-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
-.movie-info h4{
-    margin: 0;
-    color:white
-}
-.movie-overview{
-    padding: 1rem;
-    background-color: white;
-    position:absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    line-height: 1.6;
-    transform: translateY(102%);
-    transition: transform 0.3s ease-in-out;
-    overflow: auto;
-    max-height: 100%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.movie:hover .movie-overview{
-    transform: translateY(0%);
-}
-.green{
-    color: rgb(24, 224, 24);
-    background-color:  #121212 ;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-
-
-}
-.orange{
-    color: orange;
-    background-color:  #121212 ;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.red{
-    color: rgb(218, 12, 12);
-    background-color:  #121212 ;
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.backdrop{
-    position: fixed;
-    top: 0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
   }
-  .modal{
-    display: block;
-    max-width: 60%;
-    height: 80vh;
-    margin: 60px auto;
-    box-shadow:  3px 5px 7px rgba(0,0,0,0.5) ;
-    background-color: #333;
-    position: relative;
-    font-family: 'Cinzel', serif;
-    
-  }
-  .cancelBtn{
-      color: red;
-      font-size: xx-large;
-      font-weight: bolder;
-      border: none;
-      outline: none;
-      position: absolute; 
-      top: 0;
-      right: 0;
-      background-color: transparent;
-      cursor: pointer;
-  }
-  .trailerBtn{
-      background-color: rgb(10, 75, 173);
-      color: white;
-      padding: 1rem;
-      
-      
-         
-  }
-  .modal img{
-
-    max-width: 100%;
-    height: 400px;
-    object-fit: cover;
-    margin: 2rem;
-    margin-top: 6rem;
-
-  }
-
-  .modal h2{
-      color: white;
-      margin: 2rem;
-      position: absolute;
-      
-  }
-
- .imgWithDetails{
-    display: flex ;
-    justify-content: space-between;
-    align-items: center
- }
-
- .details{
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap
- }
-
- .details p{
-    display: inline;
-    font-size: 1rem;
-     color: white;
-     max-width: 450vh;
-     margin-right: 2rem;
- }
-
- .inList{
-
-    margin-right: 2rem;
-    color: rgb(255, 217, 0);
-    cursor: pointer;
-    margin-left: 3rem;
-     
- }
-
- .notInList{
-
-    margin-right: 2rem;
-    color:  rgb(255, 217, 0);
-    cursor: pointer;
-    margin-left: 3rem;
- }
- 
- .buttons{
-     display: flex;
-     flex-direction: row;
-     
-     align-items: center;
- }
-
- .watchList{
-     display: flex;
-     flex-wrap: wrap;
-    justify-content: center;
- }
-
- .imgInWatchList{
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
- }
- .card{
-    
-    margin: 1rem;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    width: 280px;
-    font-family: 'Cinzel', serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- }
- .card h4{
-
+  header h4 {
+    margin-left: 1rem;
     color: white;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
- }
- 
- .noItems{
-     text-align: center;
-     color: white;
-     font-family: 'Cinzel', serif;
- }
-
-
-  @media (max-width: 900px) {
-
-    .imgWithDetails{
-        display: flex ;
-        flex-direction: column;
-        align-items: center
-     }
-        
-     .details p{
-       
-        font-size: 0.8rem;
-         color: white;
-         max-width: 450vh;
-         margin: 0.5rem;
-     }    
-
-     .modal img{
-
-        max-width: 100%;
-        height: 250px;
-        object-fit: cover;
-        margin-top: 6rem;
-    
-      }
-
-      .trailerBtn{
-        background-color: rgb(10, 75, 173);
-        color: white;
-        padding: 1rem;
-        display: flex;
-        margin: auto;
-          
-    }
-
-    .modal{
-        display: block;
-        max-width: 75%;
-        height: 80vh;
-        margin: 40px auto;
-        box-shadow:  3px 5px 7px rgba(0,0,0,0.5) ;
-        background-color: #333;
-        position: relative;
-        font-family: 'Cinzel', serif;
-        overflow: auto;
-        
-      }  
-      .modal h2{
-        color: white;
-        margin: 1.5rem;
-        position: absolute;
-        
-    }
-    .buttons{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        margin: 1rem;
-    }
-  
-    .showInput{
-        margin-left: 2rem;
-        margin-right: 2rem;
-        padding: 1rem;
-        border-radius: 5px;
-        border: 3px solid #121212;
-        outline: none;
-        width: 250px;
-    }  
-    header h4{
-        margin-left: 1rem;
-        color: white ;
-        cursor:pointer
-    }
-    header{
-    
-    
-        margin-bottom: 2rem;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        
-    
-    }
-      
+    cursor: pointer;
   }
+  header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
